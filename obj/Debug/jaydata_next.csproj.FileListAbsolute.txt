@@ -1,0 +1,5 @@
+c:\git\jaydata_next\bin\jaydata_next.dll
+c:\git\jaydata_next\bin\jaydata_next.pdb
+c:\git\jaydata_next\obj\Debug\jaydata_next.csprojResolveAssemblyReference.cache
+c:\git\jaydata_next\obj\Debug\jaydata_next.dll
+c:\git\jaydata_next\obj\Debug\jaydata_next.pdb
