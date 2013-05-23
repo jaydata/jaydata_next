@@ -17,9 +17,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
-    <Content Include="app.min.js">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
     <Content Include="bin\jaydata_next.dll" />
     <Content Include="bin\jaydata_next.pdb" />
     <Content Include="bin\jquery.d.ts" />
@@ -40,20 +37,11 @@
     <Content Include="src\entity.js">
       <DependentUpon>entity.ts</DependentUpon>
     </Content>
-    <Content Include="src\entity.min.js">
-      <DependentUpon>entity.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="src\entitycontext.ts" />
     <Content Include="src\entitycontext.js">
       <DependentUpon>entitycontext.ts</DependentUpon>
     </Content>
-    <Content Include="src\entitycontext.min.js">
-      <DependentUpon>entitycontext.ts</DependentUpon>
-    </Content>
     <Content Include="src\typesystem\class.js">
-      <DependentUpon>class.ts</DependentUpon>
-    </Content>
-    <Content Include="src\typesystem\class.min.js">
       <DependentUpon>class.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="src\typesystem\class.ts" />
@@ -62,24 +50,7 @@
     <TypeScriptCompile Include="app.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.js.map">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="src\entitycontext.js.map">
-      <DependentUpon>entitycontext.ts</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="src\typesystem\class.js.map">
-      <DependentUpon>class.ts</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="src\entity.js.map">
-      <DependentUpon>entity.ts</DependentUpon>
-    </Content>
+    <Content Include="README.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
