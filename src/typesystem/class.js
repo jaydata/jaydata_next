@@ -49,4 +49,3 @@ var Jay;
 })(Jay || (Jay = {}));
 
 $data = Jay;
-//@ sourceMappingURL=class.js.map
