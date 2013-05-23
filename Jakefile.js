@@ -39,7 +39,7 @@ var useDebugMode = false;
 function compileFile(outFile, sources, prereqs, prefixes, useBuiltCompiler) {
 	file(outFile, prereqs, function () {
 		var dir = "bin/";
-		var cmd = (process.env.TYPESCRIPT_HOST || "node") + " " + dir + "tsc.js -const -declaration -disallowbool -disallowimportmodule " + sources.join(" ") + " -out " + outFile;
+		var cmd = "node" + " " + dir + 'tsc.js  --target ES5 -const -declaration -disallowbool -disallowimportmodule ' + sources.join(" ") + " -out " + outFile;
 		if (useDebugMode) {
 			cmd = cmd + " -sourcemap -fullSourceMapPath";
 		}
@@ -79,3 +79,4 @@ task("clean", function () {
     jake.rmRf("built/");
 });
 
+task("default", ["built/jaydata.js"]);

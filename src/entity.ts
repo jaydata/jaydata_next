@@ -2,7 +2,7 @@
 
 module Jay {
 
-    export class ObservableClass extends Class {
+    export class ObservableClass extends Jay.Base {
         
     }
 

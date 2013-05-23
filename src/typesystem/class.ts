@@ -12,53 +12,60 @@ module Jay {
             className: string;
             base: IClass;
         }
-        //export enum Kind {
-        //    Property, Method, Event
-        //}
+        export enum Kind {
+            property,
+            method,
+            event
+        }
+
         export interface IMemberDefinition {
             name?: string;
             type: any;
-            //kind
+            kind: metadata.Kind;
         }
+
+        //export class MemberDefinition implements IMemberDefinition {
+        //}
 
         export interface IMemberDefinitionCollection {
             [name: string]: IMemberDefinition;
         }
 
 
+        export class ClassEngine {
+
+            define(name: string, base: metadata.IClass, memberDefinitions: metadata.IMemberDefinitionCollection): metadata.IClass {
+                var result: metadata.IClass = ((base: any) => {
+                    var _class_: any = function () {
+                        base.apply(this, arguments);
+                    };
+                    _class_.prototype = Object.create(base.prototype, { constructor: { value: _class_, enumerable: false } });
+                    for (var j in memberDefinitions) {
+                        var md = memberDefinitions[j];
+                        _class_.prototype[j] = memberDefinitions[j];
+                    }
+                    _class_.className = name;
+                    _class_.base = null;
+                    return _class_;
+                })(base || Base);
+                return result;
+            }
+        }
     }
 
     export class Base {
         constructor(public a: number) {
-            console.log("base ctor");
-        }    
-    }
+        }
 
-    export class Class {
+        static define(memberDefinitions: metadata.IMemberDefinitionCollection) {
 
-        static define(name: string, base: metadata.IClass, memberDefinitions: metadata.IMemberDefinitionCollection): metadata.IClass {
-            var result: metadata.IClass = ((base: any) => {
-                var _class_: any = function () {
-                    console.log("sc ctor");
-                        base.apply(this, arguments);
-                };
-                
-                console.log("sc define");
-                //_class_.prototype = new base();
-                _class_.prototype = Object.create(base.prototype, null);
-                
-                _class_.prototype.constructor = _class_;
-                for (var j in memberDefinitions) {
-                    var md = memberDefinitions[j];
-                    _class_.prototype[j] = memberDefinitions[j];
-                }
-                _class_.className = name;
-                _class_.base = null;
-                return _class_;
-            })(base || Base);
-            return result;
         }
     }
+
+
+    
+    export var Class = new metadata.ClassEngine();
 }
 
-var $data = Jay;
+declare var $data;
+$data = Jay;

@@ -1,35 +1,54 @@
 var Jay;
 (function (Jay) {
-    var Class = (function () {
-        function Class() {
-        }
-        Class.define = function (name, base, memberDefinitions) {
-            var _this = this;
-            console.log(this === Class);
-            var result = (function (base) {
-                var _class_ = function () {
-                    if (base !== Class) {
-                        base.apply(this);
-                    }
-                };
+    (function (metadata) {
+        (function (Kind) {
+            Kind[Kind["property"] = 0] = "property";
+            Kind[Kind["method"] = 1] = "method";
 
-                _class_.prototype = new base();
-                for (var j in memberDefinitions) {
-                    var md = memberDefinitions[j];
-                    _class_.prototype[j] = memberDefinitions[j];
-                }
-                _class_.className = name;
-                _class_.base = null;
-                return _class_;
-            })(base || Class);
-            return result;
+            Kind[Kind["event"] = 2] = "event";
+        })(metadata.Kind || (metadata.Kind = {}));
+        var Kind = metadata.Kind;
+
+        var ClassEngine = (function () {
+            function ClassEngine() {
+            }
+            ClassEngine.prototype.define = function (name, base, memberDefinitions) {
+                var _this = this;
+                var result = (function (base) {
+                    var _class_ = function () {
+                        base.apply(this, arguments);
+                    };
+                    _class_.prototype = Object.create(base.prototype, { constructor: { value: _class_, enumerable: false } });
+                    for (var j in memberDefinitions) {
+                        var md = memberDefinitions[j];
+                        _class_.prototype[j] = memberDefinitions[j];
+                    }
+                    _class_.className = name;
+                    _class_.base = null;
+                    return _class_;
+                })(base || Jay.Base);
+                return result;
+            };
+            return ClassEngine;
+        })();
+        metadata.ClassEngine = ClassEngine;
+    })(Jay.metadata || (Jay.metadata = {}));
+    var metadata = Jay.metadata;
+
+    var Base = (function () {
+        function Base(a) {
+            this.a = a;
+        }
+        Base.define = function (memberDefinitions) {
         };
-        return Class;
+        return Base;
     })();
-    Jay.Class = Class;
+    Jay.Base = Base;
+
+    Jay.Class = new metadata.ClassEngine();
 })(Jay || (Jay = {}));
 
-var $data = Jay;
+$data = Jay;
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -44,7 +63,7 @@ var Jay;
             _super.apply(this, arguments);
         }
         return ObservableClass;
-    })(Jay.Class);
+    })(Jay.Base);
     Jay.ObservableClass = ObservableClass;
 
     var Entity = (function (_super) {
