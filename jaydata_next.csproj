@@ -39,6 +39,20 @@
     <Content Include="src\entitycontext.min.js">
       <DependentUpon>entitycontext.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="src\entityset.ts" />
+    <Content Include="src\entityset.js">
+      <DependentUpon>entityset.ts</DependentUpon>
+    </Content>
+    <Content Include="src\entityset.min.js">
+      <DependentUpon>entityset.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="src\queryable.ts" />
+    <Content Include="src\queryable.js">
+      <DependentUpon>queryable.ts</DependentUpon>
+    </Content>
+    <Content Include="src\queryable.min.js">
+      <DependentUpon>queryable.ts</DependentUpon>
+    </Content>
     <Content Include="src\typesystem\class.min.js">
       <DependentUpon>class.ts</DependentUpon>
     </Content>
@@ -91,6 +105,16 @@
   <ItemGroup>
     <Content Include="src\entitycontext.js.map">
       <DependentUpon>entitycontext.ts</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\entityset.js.map">
+      <DependentUpon>entityset.ts</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\queryable.js.map">
+      <DependentUpon>queryable.ts</DependentUpon>
     </Content>
   </ItemGroup>
   <PropertyGroup>
