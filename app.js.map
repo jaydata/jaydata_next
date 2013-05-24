@@ -1,1 +1,1 @@
-{"version":3,"file":"app.js","sources":["app.ts"],"names":[],"mappings":""}
+{"version":3,"file":"app.js","sources":["app.ts"],"names":["Order","Order.constructor","Order2","Order2.constructor"],"mappings":";;;;;;AAcA;;IAAAA;;;AAOCA,IAADA;AAACA,CAAAA,EAPmB,GAAG,CAAC,MAAM,EAO7B;;AAMD,0CAJ0C;AAC1C,8BAA8B;AAC9B,+BAA+B;AAE3B,IAAA,CAAC,GAAG,IAAI,KAAK,CAAC,CAAC,CAAC;;AAGpB;;IAAAE;;;AASCA,IAADA;AAACA,CAAAA,EAToB,GAAG,CAAC,MAAM,EAS9B;;AAED,IAAI,MAAM,GAAG,GAAG,CAAC,MAAM,CAAC,MAAM,CAAC,KAAK,EAAE,EAErC,CAAC,CAAC"}

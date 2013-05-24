@@ -5,25 +5,28 @@
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="src/typesystem/class.js"></script>
-<!--    <script src="jaydata.js"></script>-->
-    <!--<script src="built/jaydata.min.js"></script>-->
+<!--    <script src="src/typesystem/class.js"></script>
+    <script src="src/entity.js"></script>
+    <script src="src/$data-compat.js"></script>-->
+    <script src="built/jaydata.js"></script>
     <script>
-        var abc = $data.Class.define("abc", null, {
-            f1: function () { }
-        });
 
-        var def = $data.Class.define("def", abc, {
-            f2: function () { }
-        })
+        var abc = Jay.Class.define("abc", Jay.Base, null, {}, {});
 
-        var i = new def();
+        //var abc = $data.Class.define("abc", null, {
+        //    f1: function () { }
+        //});
+
+        //var def = $data.Class.define("def", abc, {
+        //    f2: function () { }
+        //})
+
+        //var i = new def();
         //i.
     </script>
 </head>
 <body>
     <h1>TypeScript HTML App</h1>
-
     <div id="content"></div>
 </body>
 </html>

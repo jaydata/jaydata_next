@@ -1,2 +1,7 @@
 # git ignore file
+*.map
 src/*.map
+src/typesystem/*.map
+*.min.js
+src/*.min.js
+src/typesystem/*.min.js

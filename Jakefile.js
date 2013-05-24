@@ -7,10 +7,13 @@ var builtDirectory = "built/";
 
 var coreSources = [
 	"entity.ts",
-	"typesystem/class.ts"
+    "entitycontext.ts",
+	"typesystem/class.ts",
 ].map(function (f) {
 	return path.join(coreDirectory, f);
 });
+
+coreSources.push("app.ts");
 
 directory(builtDirectory);
 
@@ -39,7 +42,7 @@ var useDebugMode = false;
 function compileFile(outFile, sources, prereqs, prefixes, useBuiltCompiler) {
 	file(outFile, prereqs, function () {
 		var dir = "bin/";
-		var cmd = "node" + " " + dir + 'tsc.js  --target ES5 -const -declaration -disallowbool -disallowimportmodule ' + sources.join(" ") + " -out " + outFile;
+		var cmd = "node" + " " + dir + 'tsc.js  --target ES5 -c -const -declaration -disallowbool -disallowimportmodule ' + sources.join(" ") + " -out " + outFile;
 		if (useDebugMode) {
 			cmd = cmd + " -sourcemap -fullSourceMapPath";
 		}

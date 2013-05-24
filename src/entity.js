@@ -4,27 +4,25 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
+/// <reference path="entitycontext.ts" />
 /// <reference path="typesystem/class.ts" />
 var Jay;
 (function (Jay) {
-    var ObservableClass = (function (_super) {
-        __extends(ObservableClass, _super);
-        function ObservableClass() {
+    var ObservableBase = (function (_super) {
+        __extends(ObservableBase, _super);
+        function ObservableBase() {
             _super.apply(this, arguments);
         }
-        return ObservableClass;
+        return ObservableBase;
     })(Jay.Base);
-    Jay.ObservableClass = ObservableClass;
+    Jay.ObservableBase = ObservableBase;
 
     var Entity = (function (_super) {
         __extends(Entity, _super);
         function Entity() {
             _super.apply(this, arguments);
         }
-        Entity.abc = function () {
-        };
         return Entity;
-    })(ObservableClass);
+    })(Jay.ObservableBase);
     Jay.Entity = Entity;
 })(Jay || (Jay = {}));
-//@ sourceMappingURL=entity.js.map
